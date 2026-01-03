@@ -1,5 +1,5 @@
 const isProd = process.env.NODE_ENV === 'production'
 
 export default {
-  serverPath: isProd ? "https://quentain-server.onrender.com": "http://localhost:5050",
+  serverPath: isProd ? "https://api.guandan.gxwtf.cn": "http://localhost:5000",
 }
