@@ -44,6 +44,14 @@ export default {
       gameServer: config.serverPath
     }
   },
+  created() {
+    const savedLoggedIn = localStorage.getItem('loggedIn')
+    const savedUsername = localStorage.getItem('username')
+    if (savedLoggedIn === 'true' && savedUsername) {
+      this.loggedIn = true
+      this.username = savedUsername
+    }
+  },
   methods: {
     join_game(player_id, token, returnServer) {
       this.player_id = player_id
@@ -64,12 +72,18 @@ export default {
     log_in(username){
       this.loggedIn = true
       this.username = username
+      localStorage.setItem('loggedIn', 'true')
+      localStorage.setItem('username', username)
     },
     log_out(){
       this.loggedIn = false
       this.username = ''
-      clearInterval(this$refs.gameview.intervalId)
-    }
+      localStorage.removeItem('loggedIn')
+      localStorage.removeItem('username')
+      if (this.$refs.gameview) {
+        clearInterval(this.$refs.gameview.intervalId)
+      }
+    },
   }
 }
 </script>
