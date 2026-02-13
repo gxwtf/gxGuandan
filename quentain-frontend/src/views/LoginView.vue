@@ -25,17 +25,17 @@
             <n-icon :component="Server24Filled" />
           </template>
         </n-input>
-        <n-input v-if='whetherlogin' v-model:value="password" placeholder="Password">
+        <n-input v-if='whetherlogin' v-model:value="password" type="password" placeholder="Password">
           <template #prefix>
               <n-icon :component="TokenFilled" />
           </template>
         </n-input>
-        <n-input v-else v-model:value="password" placeholder='Password'>
+        <n-input v-else v-model:value="password" type="password" placeholder='Password'>
           <template #prefix>
             <n-icon :component="DocumentPageNumber24Filled" />
           </template>
         </n-input>
-        <n-input v-if='!whetherlogin' v-model:value="confirmation" placeholder='Confirm Password'>
+        <n-input v-if='!whetherlogin' v-model:value="confirmation" type="password" placeholder='Confirm Password'>
           <template #prefix>
             <n-icon :component="DocumentPageNumber24Filled" />
           </template>
